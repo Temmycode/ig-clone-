@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/helpers/global_variables.dart';
 
 import '../helpers/colors.dart';
 
@@ -40,16 +41,10 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        children: [
-          Text("Home"),
-          Text("Bread"),
-          Text("Yam"),
-          Text("Nonsense"),
-          Text("Still"),
-        ],
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         onPageChanged: onPageChanged,
+        children: homeScreenItems,
       ),
       bottomNavigationBar: CupertinoTabBar(
         onTap: actionTapped,
@@ -64,7 +59,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
                 : const Icon(Icons.home_outlined),
             label: "",
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: "",
           ),
